@@ -11,7 +11,7 @@ class UsersController {
             .then((user) => user ? res.json(user) : res.status(401).send('wrong user/password'));
     }
     signup(req, res) {
-        this.driver.callDb(mongo_service_1.signup, req.body).then((id) => id ? res.json({ id }) :
+        this.driver.callDb(mongo_service_1.signup, req.body).then((data) => data ? res.json({ data }) :
             res.status(206).send('wrong !'));
     }
     getUserProfile(req, res) {

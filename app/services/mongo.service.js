@@ -47,7 +47,11 @@ exports.getUsers = (connect) => __awaiter(void 0, void 0, void 0, function* () {
     return user_utils_1.formatUsers(data);
 });
 exports.signup = (connect, user) => __awaiter(void 0, void 0, void 0, function* () {
+    const [email] = yield connect.collection('UserProfile').find({ email: user.email }).toArray();
+    if (email) {
+        return { email: 'Email address exist !', id: -1 };
+    }
     const { insertedId } = yield connect.collection('UserProfile').insertOne(user);
-    return insertedId;
+    return { email: user.email, id: insertedId };
 });
 //# sourceMappingURL=mongo.service.js.map

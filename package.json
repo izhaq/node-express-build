@@ -5,8 +5,9 @@
   "main": "lib/server",
   "scripts": {
     "start": "node ./server.js",
+    "prod": "npm run build",
     "build": "tsc --project ./",
-    "dev": "nodemon --watch src/ --exec ts-node ./server.ts -e ts"
+    "dev": "nodemon --watch src/ --exec ts-node ./src/server.ts -e ts"
   },
   "author": "",
   "license": "ISC",
